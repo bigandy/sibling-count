@@ -1,10 +1,10 @@
 {
   "name": "@bigandy/sibling-count",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "author": "Andrew JD Hudson @bigandy (https://andrewhudson.dev/)",
   "type": "module",
-  "main": "re-sizer.js",
-  "module": "re-sizer.js",
+  "main": "sibling-count.js",
+  "module": "sibling-count.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
