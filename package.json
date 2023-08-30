@@ -1,6 +1,6 @@
 {
   "name": "@bigandy/sibling-count",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Andrew JD Hudson @bigandy (https://andrewhudson.dev/)",
   "type": "module",
   "main": "sibling-count.js",
@@ -11,7 +11,7 @@
     "npm:publish": "npm publish --access=public"
   },
   "devDependencies": {
-    "vite": "4.1.4"
+    "vite": "4.4.9"
   },
   "repository": {
     "type": "git",
