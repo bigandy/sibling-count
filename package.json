@@ -1,13 +1,13 @@
 {
   "name": "@bigandy/sibling-count",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "author": "Andrew JD Hudson @bigandy (https://andrewhudson.dev/)",
   "type": "module",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/assets/index.js",
+  "module": "./dist/assets/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "npm:publish": "npm publish --access=public"
   },
   "devDependencies": {
