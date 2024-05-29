@@ -1,2 +1,6 @@
 index.html
 dist
+*.ts
+!*.d.ts
+*.tgz
+tsconfig.json
