@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite</title>
 
+    <script type="module" src="/sibling-count.js"></script>
     <style>
-      ul {
-  list-style: none;
-  padding-left: 0;
-  transform: rotate(-90deg);
-  width: 500px;
-  aspect-ratio: 1;
+      @property --sibling-index {
+        syntax: "<angle>";
+        inherits: true;
+        initial-value: "0deg";
+      }
 
-  & li {
-    height: 3em;
-    background: hsl(
-      calc(var(--sibling-index) * calc(360 / var(--sibling-count) * 1deg)) 100% 50%
-    );
-  }
-}
-
+      li {
+        margin-block: 1rem;
+        height: 20px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: hsl(calc(var(--sibling-index) * 30deg) 50% 50%);
+      }
     </style>
-    <script type="module" src="/sibling-count.ts"></script>
   </head>
   <body>
     <sibling-count>

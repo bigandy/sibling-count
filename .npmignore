@@ -1,5 +1,2 @@
 index.html
-*.ts
-!*.d.ts
 *.tgz
-tsconfig.json
