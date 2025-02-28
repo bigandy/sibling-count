@@ -53,7 +53,7 @@ class SiblingCount extends HTMLElement {
     // Loop through all the children and add the custom property sibling-index to each.
 
     siblings.forEach((sibling, index) => {
-      const siblingIndex = index + this.startingIndex;
+      const siblingIndex = index + this.initialIndex;
       this.setAttributeOrStyle(sibling, "sibling-index", siblingIndex);
     });
   }
