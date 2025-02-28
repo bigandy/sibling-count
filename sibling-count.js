@@ -1,5 +1,5 @@
-const initialIndex = "initial-index";
-const keepTrackOfUpdates = "keep-track-of-updates";
+const initialIndex = "initialIndex";
+const keepTrackOfUpdates = "keepTrackOfUpdates";
 
 class SiblingCount extends HTMLElement {
   static observedAttributes = [initialIndex, keepTrackOfUpdates];
@@ -12,13 +12,13 @@ class SiblingCount extends HTMLElement {
 	`;
     this.modernAttrSupport = CSS.supports("x: attr(x type(*))");
 
-    this.startingIndex = 1;
+    this.initialIndex = 1;
     this.keepTrackOfUpdates = false;
     // future friendly means that the user wants attr() to be used instead of inline custom properties.
     this.futureFriendly = false;
 
     if (this.hasAttribute(initialIndex)) {
-      this.startingIndex = Number(this.getAttribute(initialIndex));
+      this.initialIndex = Number(this.getAttribute(initialIndex));
     }
 
     if (this.hasAttribute(keepTrackOfUpdates)) {

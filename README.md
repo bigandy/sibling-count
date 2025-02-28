@@ -1,6 +1,6 @@
 # Sibling-count Web Component
 
-A web component that allows you to put --sibling-count on the parent item, as well as --sibling-index on each child item. This allows cool things such as https://nerdy.dev/cyclical-radio-group-with-trig-functions-and-grid but without the hard-work of hand-coding the css variables.
+A web component that allows you to put --sibling-count on the parent item, as well as --sibling-index on each child item. This allows cool things such as https://nerdy.dev/cyclical-radio-group-with-trig-functions-and-grid but without the hard-work of hand-coding the css variables. Here's the [CSSWG ticket](https://github.com/w3c/csswg-drafts/issues/4559).
 
 ## Scripts
 
@@ -11,6 +11,7 @@ A web component that allows you to put --sibling-count on the parent item, as we
 ## Examples
 
 1. https://codepen.io/bigandy/pen/OJovxRW
+2. https://stackblitz.com/edit/vitejs-vite-grktabbm?file=src%2FApp.tsx&terminal=dev (with React)
 
 ## Notes
 
@@ -86,3 +87,13 @@ ul {
 
 Resulting in this:<br />
 <img width="511" alt="Screenshot 2023-08-29 at 16 47 38" src="https://github.com/bigandy/sibling-count/assets/603328/0313dd70-d5c6-4db6-a01a-7892913adc1b">
+
+## Optional Props
+
+### keepTrackOfUpdates
+
+Should you want the custom element to keep track of updates to the number of children you can use the `keepTrackOfUpdates` attribute.
+
+### initialIndex
+
+Should you want the count to start at a number that is not 1 then you can use the `initialIndex` attribute
