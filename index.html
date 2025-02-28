@@ -7,32 +7,56 @@
 
     <script type="module" src="/sibling-count.js"></script>
     <style>
-      @property --sibling-index {
-        syntax: "<angle>";
-        inherits: true;
-        initial-value: "0deg";
-      }
-
       li {
         margin-block: 1rem;
         height: 20px;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: hsl(calc(var(--sibling-index) * 30deg) 50% 50%);
+        background: hsl(calc(var(--sibling-index) * 300deg) 100% 50%);
       }
     </style>
   </head>
   <body>
-    <sibling-count>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </sibling-count>
+<p>Test with blank spaces removed</p>
+    <sibling-count><ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul></sibling-count>
+<p>Test with blank spaces</p>
+<sibling-count>
+  <ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</sibling-count>
+
+<p>Using starting-index</p>
+<sibling-count initial-index="3">
+  <ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</sibling-count>
+
+<p>Test with a paragraph</p>
+<sibling-count>
+  <p>This is cool?</p>
+  <p>This is cool?</p>
+</sibling-count>
   </body>
 </html>
