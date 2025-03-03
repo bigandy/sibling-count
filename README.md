@@ -77,7 +77,8 @@ ul {
     height: 3em;
 
     background: hsl(
-      calc(var(--sibling-index) * calc(360 / var(--sibling-count) * 1deg)) 100% 50%
+      calc(var(--sibling-index) * calc(360 / var(--sibling-count) * 1deg)) 100%
+        50%
     );
   }
 }
