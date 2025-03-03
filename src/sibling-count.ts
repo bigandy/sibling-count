@@ -3,7 +3,7 @@ const keepTrackOfUpdates = "keep-track-of-updates";
 
 interface SiblingCount {
   modernAttrSupport: boolean;
-  startingIndex: number;
+  initialIndex: number;
   keepTrackOfUpdates: boolean;
   futureFriendly: boolean;
 }
@@ -23,14 +23,14 @@ class SiblingCount extends HTMLElement {
 	`;
     this.modernAttrSupport = CSS.supports("x: attr(x type(*))");
 
-    this.startingIndex = 1;
+    this.initialIndex = 1;
     this.keepTrackOfUpdates = false;
 
     // future friendly means that the user wants attr() to be used instead of inline custom properties. Not implented so far.
     this.futureFriendly = false;
 
     if (this.hasAttribute(initialIndex)) {
-      this.startingIndex = Number(this.getAttribute(initialIndex));
+      this.initialIndex = Number(this.getAttribute(initialIndex));
     }
 
     if (this.hasAttribute(keepTrackOfUpdates)) {
@@ -69,7 +69,7 @@ class SiblingCount extends HTMLElement {
     // Loop through all the children and add the custom property sibling-index to each.
 
     siblings.forEach((sibling, index) => {
-      const siblingIndex = String(index + this.startingIndex);
+      const siblingIndex = String(index + this.initialIndex);
       this.setAttributeOrStyle(
         sibling as HTMLElement,
         "sibling-index",
