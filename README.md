@@ -6,7 +6,7 @@ A web component that allows you to put --sibling-count on the parent item, as we
 
 - `npm run dev` - runs the vite dev environment
 - `npm run build` - builds the project with vite build
-- `npm run npm:publish` - publishes the package to npm (needs One Time Password)
+- `npm run local-release` - publishes the package to npm (needs One Time Password) after doing all the checks beforehand
 
 ## Examples
 
