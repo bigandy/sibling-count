@@ -1,3 +1,1 @@
-import SiblingCount from "./sibling-count";
-
-export default SiblingCount;
+export * from "./sibling-count";
