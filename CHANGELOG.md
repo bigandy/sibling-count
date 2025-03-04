@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 1.3.2
+
+### Patch Changes
+
+- aa2d959: setup ci for release
+
 ## 1.3.1
 
 ### Patch Changes
