@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SiblingCount > should match the snapshot 1`] = `
+<sibling-count>
+  <ul
+    style="--sibling-count: 3;"
+  >
+    
+                
+    <li
+      style="--sibling-index: 1;"
+    />
+    
+                
+    <li
+      style="--sibling-index: 2;"
+    />
+    
+                
+    <li
+      style="--sibling-index: 3;"
+    />
+    
+              
+  </ul>
+  
+    
+</sibling-count>
+`;
