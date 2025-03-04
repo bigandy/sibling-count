@@ -8,6 +8,8 @@ A web component that allows you to put --sibling-count on the parent item, as we
 - `npm run build` - builds the project with vite build
 - `npm run local-release` - publishes the package to npm (needs One Time Password) after doing all the checks beforehand
 - `npx changeset` - creates a changeset of the latest changes. You can choose if it is a patch, minor, or major change.
+- `npm run test` - runs the tests with vitest
+- `npm run test:watch` runs the tests in watch mode
 
 ## To create a new release
 
@@ -104,3 +106,7 @@ Should you want the custom element to keep track of updates to the number of chi
 ### initialIndex
 
 Should you want the count to start at a number that is not 1 then you can use the `initialIndex` attribute
+
+## Other
+
+I upgraded this package using this tutorial: https://www.totaltypescript.com/how-to-create-an-npm-package
