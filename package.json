@@ -1,6 +1,6 @@
 {
   "name": "@bigandy/sibling-count",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": "Andrew JD Hudson @bigandy (https://andrewhudson.dev/)",
   "description": "A web component that shows the count the number of siblings of a parent element and the index of each child element.",
   "keywords": [
