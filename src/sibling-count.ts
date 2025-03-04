@@ -21,7 +21,7 @@ class SiblingCount extends HTMLElement {
     this.shadowRoot.innerHTML = `
 	<slot></slot>
 	`;
-    this.modernAttrSupport = CSS.supports("x: attr(x type(*))");
+    this.modernAttrSupport = CSS?.supports("x: attr(x type(*))") ?? false;
 
     this.initialIndex = 1;
     this.keepTrackOfUpdates = false;
@@ -60,9 +60,21 @@ class SiblingCount extends HTMLElement {
         // filter out text nodes
         .filter((node) => node.nodeType === 1) ?? [];
 
+    if (assignedNodes.length > 1) {
+      console.warn("Sibling Count - Only one parent element is allowed.");
+      return;
+    }
+
     const parent = assignedNodes[0] as HTMLElement;
 
     const siblingCount = parent.childElementCount;
+    if (siblingCount === 0) {
+      console.warn(
+        "Sibling Count - No children found. Use one parent element and this component will show how many children elements are present.",
+      );
+      return;
+    }
+
     this.setAttributeOrStyle(parent, "sibling-count", String(siblingCount));
 
     const siblings = [...parent.children];
