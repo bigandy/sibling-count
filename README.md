@@ -23,7 +23,7 @@ A web component that allows you to put --sibling-count on the parent item, as we
 
 ## Notes
 
-You can import with unpkg `https://unpkg.com/@bigandy/sibling-count@1.3.0` and then use in your HTML
+You can import with unpkg `https://unpkg.com/@bigandy/sibling-count@1.3.1` and then use in your HTML
 
 <details open>
 <summary>input html</summary>
