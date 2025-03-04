@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 1.3.1
+
+### Patch Changes
+
+- 28911e3: remove dependency
+
 ## 1.3.0
 
 ### Minor Changes
