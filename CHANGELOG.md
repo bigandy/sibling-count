@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 1.3.4
+
+### Patch Changes
+
+- 19b11cc: another bump. Hoping I have fixed it now.
+
 ## 1.3.3
 
 ### Patch Changes
