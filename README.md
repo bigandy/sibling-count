@@ -97,6 +97,37 @@ ul {
 Resulting in this:<br />
 <img width="511" alt="Screenshot 2023-08-29 at 16 47 38" src="https://github.com/bigandy/sibling-count/assets/603328/0313dd70-d5c6-4db6-a01a-7892913adc1b">
 
+## Do not
+
+If you provide more than one one top-level child, you'll get a console.warn message telling you not to. For example
+
+```html
+<sibling-count>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</sibling-count>
+```
+
+If you pass a top-level element with no children, you'll also get a console.warn message. For example:
+
+```html
+<sibling-count>
+  <p>This paragraph does not contain any children</p>
+</sibling-count>
+```
+
 ## Optional Props
 
 ### keepTrackOfUpdates
@@ -107,6 +138,6 @@ Should you want the custom element to keep track of updates to the number of chi
 
 Should you want the count to start at a number that is not 1 then you can use the `initialIndex` attribute
 
-## Other
+## Misc Notes
 
-I upgraded this package using this tutorial: https://www.totaltypescript.com/how-to-create-an-npm-package
+I converted this package following this tutorial: https://www.totaltypescript.com/how-to-create-an-npm-package
