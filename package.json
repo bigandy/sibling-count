@@ -24,6 +24,7 @@
     "check-format": "prettier --check .",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
     "local-release": "changeset version && changeset publish",
+    "release": "npm run ci && changeset publish",
     "prepublishOnly": "npm run ci",
     "test": "vitest run",
     "test:watch": "vitest"
