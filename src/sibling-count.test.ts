@@ -32,31 +32,33 @@ describe("SiblingCount", () => {
     expect(siblingCount).toBeDefined();
   });
 
-  it("the parent should have a --sibling-count matching the number of children", () => {
-    const siblingCount = createSiblingCount();
-
-    const list = siblingCount.querySelector("ul")!;
-    const listItems = list.querySelectorAll("li");
-    const siblingCountValue =
-      getComputedStyle(list).getPropertyValue("--sibling-count");
-
-    expect(siblingCountValue).toBe("3");
-    expect(listItems.length).toBe(3);
-  });
-
   it("for each of the children: should have a --sibling-index matching the 1-based index", () => {
     const siblingCount = createSiblingCount();
 
     const list = siblingCount.querySelector("ul")!;
     const listItems = list.querySelectorAll("li");
 
-    // Loop through list items, check their
+    // Loop through list items, check their --sibling-index matches the index
     let index = 1;
     for (const listItem of listItems) {
       const siblingIndexValue =
         getComputedStyle(listItem).getPropertyValue("--sibling-index");
       expect(siblingIndexValue).toBe(String(index));
       index++;
+    }
+  });
+
+  it("for each of the children: should have a --sibling-count matching the number of siblings that the element has", () => {
+    const siblingCount = createSiblingCount();
+
+    const list = siblingCount.querySelector("ul")!;
+    const listItems = list.querySelectorAll("li");
+
+    for (const listItem of listItems) {
+      const siblingIndexValue =
+        getComputedStyle(listItem).getPropertyValue("--sibling-count");
+
+      expect(siblingIndexValue).toBe(String(listItems.length));
     }
   });
 
