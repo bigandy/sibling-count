@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 2.0.0
+
+### Major Changes
+
+- 192199a: match spec with regards sibling-count being on children not parent.
+
 ## 1.3.4
 
 ### Patch Changes
