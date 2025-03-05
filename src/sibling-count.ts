@@ -75,8 +75,6 @@ class SiblingCount extends HTMLElement {
       return;
     }
 
-    this.setAttributeOrStyle(parent, "sibling-count", String(siblingCount));
-
     const siblings = [...parent.children];
     // Loop through all the children and add the custom property sibling-index to each.
 
@@ -86,6 +84,12 @@ class SiblingCount extends HTMLElement {
         sibling as HTMLElement,
         "sibling-index",
         siblingIndex,
+      );
+
+      this.setAttributeOrStyle(
+        sibling as HTMLElement,
+        "sibling-count",
+        String(siblingCount),
       );
     });
   }
