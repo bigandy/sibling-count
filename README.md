@@ -23,7 +23,7 @@ A web component that allows you to put --sibling-count on the parent item, as we
 
 ## Notes
 
-You can import with unpkg `https://unpkg.com/@bigandy/sibling-count@1.3.1` and then use in your HTML
+You can import with unpkg `https://unpkg.com/@bigandy/sibling-count@2.0.0` and then use in your HTML
 
 <details open>
 <summary>input html</summary>
@@ -47,22 +47,22 @@ You can import with unpkg `https://unpkg.com/@bigandy/sibling-count@1.3.1` and t
 
 </details>
 
-<details>
+<details open>
 <summary>output html</summary>
 which will yield the following HTML when the web-component JS is run:
 
 ```html
-<ul style="--sibling-count: 10;">
-  <li style="--sibling-index: 1;"></li>
-  <li style="--sibling-index: 2;"></li>
-  <li style="--sibling-index: 3;"></li>
-  <li style="--sibling-index: 4;"></li>
-  <li style="--sibling-index: 5;"></li>
-  <li style="--sibling-index: 6;"></li>
-  <li style="--sibling-index: 7;"></li>
-  <li style="--sibling-index: 8;"></li>
-  <li style="--sibling-index: 9;"></li>
-  <li style="--sibling-index: 10;"></li>
+<ul>
+  <li style="--sibling-index: 1; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 2; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 3; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 4; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 5; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 6; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 7; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 8; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 9; --sibling-count: 10;"></li>
+  <li style="--sibling-index: 10; --sibling-count: 10;"></li>
 </ul>
 ```
 
