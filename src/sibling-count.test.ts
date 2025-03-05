@@ -32,19 +32,6 @@ describe("SiblingCount", () => {
     expect(siblingCount).toBeDefined();
   });
 
-  /* This test is wrong. The spec says that each item should have a sibling-count() not the parent. */
-  //   it("the parent should have a --sibling-count matching the number of children", () => {
-  //     const siblingCount = createSiblingCount();
-
-  //     const list = siblingCount.querySelector("ul")!;
-  //     const listItems = list.querySelectorAll("li");
-  //     const siblingCountValue =
-  //       getComputedStyle(list).getPropertyValue("--sibling-count");
-
-  //     expect(siblingCountValue).toBe("3");
-  //     expect(listItems.length).toBe(3);
-  //   });
-
   it("for each of the children: should have a --sibling-index matching the 1-based index", () => {
     const siblingCount = createSiblingCount();
 
