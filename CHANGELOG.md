@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.2.1
+
+### Patch Changes
+
+- 5bd97f0: update readme
+
 ## 3.2.0
 
 ### Minor Changes
