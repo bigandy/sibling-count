@@ -23,18 +23,8 @@ class SiblingCount extends HTMLElement {
     this.supportsSiblingCount =
       CSS?.supports("z-index: sibling-count()") ?? false;
 
-    this.keepTrackOfUpdates = false;
-
-    if (this.hasAttribute(keepTrackOfUpdates)) {
-      const attr = this.getAttribute(keepTrackOfUpdates) ?? "";
-      this.forceInlineStyle = ["true", ""].includes(attr);
-    }
-
     this.forceInlineStyle = false;
-    if (this.hasAttribute(forceInlineStyle)) {
-      const attr = this.getAttribute(forceInlineStyle) ?? "";
-      this.forceInlineStyle = ["true", ""].includes(attr);
-    }
+    this.keepTrackOfUpdates = false;
   }
 
   setAttributeOrStyle(element: HTMLElement, name: string, value: string) {
@@ -86,6 +76,16 @@ class SiblingCount extends HTMLElement {
   }
 
   connectedCallback() {
+    if (this.hasAttribute(keepTrackOfUpdates)) {
+      const attr = this.getAttribute(keepTrackOfUpdates) ?? "";
+      this.keepTrackOfUpdates = ["true", ""].includes(attr);
+    }
+
+    if (this.hasAttribute(forceInlineStyle)) {
+      const attr = this.getAttribute(forceInlineStyle) ?? "";
+      this.forceInlineStyle = ["true", ""].includes(attr);
+    }
+
     if (this.supportsSiblingCount && !this.forceInlineStyle) {
       console.warn("Sibling Count - This browser supports sibling-count().");
       return;
@@ -142,4 +142,4 @@ class SiblingCount extends HTMLElement {
 }
 
 customElements.define("sibling-count", SiblingCount);
-// export default SiblingCount;
+export default SiblingCount;
