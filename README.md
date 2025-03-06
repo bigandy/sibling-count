@@ -25,7 +25,7 @@ As of March 2025 this feature is being [prototyped in Chrome Canary](https://iss
 
 ## Notes
 
-You can import with unpkg `https://unpkg.com/@bigandy/sibling-count@3.0.0` and then use in your HTML
+You can import with unpkg `https://unpkg.com/@bigandy/sibling-count` and then use in your HTML
 
 <details open>
 <summary>input html</summary>
@@ -117,6 +117,10 @@ If you pass a top-level element with no children, you'll also get a console.warn
 ### keepTrackOfUpdates
 
 Should you want the custom element to keep track of updates to the number of children you can use the `keep-track-of-updates` attribute.
+
+### forceInlineStyle
+
+Should you want to force the use of the inline styles even in a browser that supports sibling-count() and sibling-index() use the `force-inline-style` attribute.
 
 ## Misc Notes
 
