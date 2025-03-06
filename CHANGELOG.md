@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.4.0
+
+### Minor Changes
+
+- 36d7423: replace force-inline-style with modern-only so that css.support only if forced
+
 ## 3.3.0
 
 ### Minor Changes
