@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.0.0
+
+### Major Changes
+
+- cd7cb6b: handle browsers that support this feature
+
 ## 2.0.0
 
 ### Major Changes
