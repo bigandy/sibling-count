@@ -87,8 +87,11 @@ ul {
     height: 3em;
 
     background: hsl(
-      calc(var(--sibling-index) * calc(360 / var(--sibling-count) * 1deg)) 100%
-        50%
+      calc(
+          var(--sibling-index, sibling-index()) *
+            calc(360 / var(--sibling-count, sibling-count()) * 1deg)
+        )
+        100% 50%
     );
   }
 }
@@ -114,10 +117,6 @@ If you pass a top-level element with no children, you'll also get a console.warn
 ### keepTrackOfUpdates
 
 Should you want the custom element to keep track of updates to the number of children you can use the `keep-track-of-updates` attribute.
-
-### futureFriendly
-
-Chrome Canary are prototyping this feature under a flag. If you want the web component to check if your browser supports this feature (falling back to inline style if the browser does not) then use the `future-friendly` attribute.
 
 ## Misc Notes
 

@@ -1,14 +1,12 @@
 const keepTrackOfUpdates = "keep-track-of-updates";
-const futureFriendly = "future-friendly";
 
 interface SiblingCount {
   supportsSiblingCount: boolean;
   keepTrackOfUpdates: boolean;
-  futureFriendly: boolean;
 }
 
 class SiblingCount extends HTMLElement {
-  static observedAttributes = [keepTrackOfUpdates, futureFriendly];
+  static observedAttributes = [keepTrackOfUpdates];
 
   constructor() {
     super();
@@ -24,15 +22,6 @@ class SiblingCount extends HTMLElement {
       CSS?.supports("z-index: sibling-count()") ?? false;
 
     this.keepTrackOfUpdates = false;
-
-    // future friendly means that the user wants to check for presence of the sibling-count() function.
-    this.futureFriendly = false;
-
-    if (this.hasAttribute(futureFriendly)) {
-      this.futureFriendly =
-        this.getAttribute(futureFriendly) === "true" ||
-        this.getAttribute(futureFriendly) === "";
-    }
 
     if (this.hasAttribute(keepTrackOfUpdates)) {
       this.keepTrackOfUpdates =
@@ -92,7 +81,7 @@ class SiblingCount extends HTMLElement {
   }
 
   connectedCallback() {
-    if (this.supportsSiblingCount && this.futureFriendly) {
+    if (this.supportsSiblingCount) {
       console.warn("Sibling Count - This browser supports sibling-count().");
       return;
     }
@@ -148,4 +137,4 @@ class SiblingCount extends HTMLElement {
 }
 
 customElements.define("sibling-count", SiblingCount);
-// export default SiblingCount;
+export default SiblingCount;
