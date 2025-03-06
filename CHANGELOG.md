@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.3.0
+
+### Minor Changes
+
+- 662f4f8: adds test for keep-track-of-updates attribute
+
 ## 3.2.1
 
 ### Patch Changes
