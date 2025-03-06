@@ -1,12 +1,14 @@
 const keepTrackOfUpdates = "keep-track-of-updates";
+const forceInlineStyle = "force-inline-style";
 
 interface SiblingCount {
   supportsSiblingCount: boolean;
   keepTrackOfUpdates: boolean;
+  forceInlineStyle: boolean;
 }
 
 class SiblingCount extends HTMLElement {
-  static observedAttributes = [keepTrackOfUpdates];
+  static observedAttributes = [keepTrackOfUpdates, forceInlineStyle];
 
   constructor() {
     super();
@@ -24,8 +26,14 @@ class SiblingCount extends HTMLElement {
     this.keepTrackOfUpdates = false;
 
     if (this.hasAttribute(keepTrackOfUpdates)) {
-      this.keepTrackOfUpdates =
-        this.getAttribute(keepTrackOfUpdates) === "true";
+      const attr = this.getAttribute(keepTrackOfUpdates) ?? "";
+      this.forceInlineStyle = ["true", ""].includes(attr);
+    }
+
+    this.forceInlineStyle = false;
+    if (this.hasAttribute(forceInlineStyle)) {
+      const attr = this.getAttribute(forceInlineStyle) ?? "";
+      this.forceInlineStyle = ["true", ""].includes(attr);
     }
   }
 
@@ -40,13 +48,10 @@ class SiblingCount extends HTMLElement {
     }
     const slot = shadow.querySelector("slot");
 
-    const assignedNodes =
-      slot
-        ?.assignedNodes()
-        // filter out text nodes
-        .filter((node) => node.nodeType === 1) ?? [];
+    const nonTextNodes =
+      slot?.assignedNodes().filter(({ nodeType }) => nodeType === 1) ?? [];
 
-    for (const node of assignedNodes) {
+    for (const node of nonTextNodes) {
       const parent = node as HTMLElement;
 
       const siblingCount = parent.childElementCount;
@@ -81,7 +86,7 @@ class SiblingCount extends HTMLElement {
   }
 
   connectedCallback() {
-    if (this.supportsSiblingCount) {
+    if (this.supportsSiblingCount && !this.forceInlineStyle) {
       console.warn("Sibling Count - This browser supports sibling-count().");
       return;
     }
@@ -137,4 +142,4 @@ class SiblingCount extends HTMLElement {
 }
 
 customElements.define("sibling-count", SiblingCount);
-export default SiblingCount;
+// export default SiblingCount;
