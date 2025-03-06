@@ -102,7 +102,7 @@ ul {
 Resulting in this:<br />
 <img width="511" alt="Screenshot 2023-08-29 at 16 47 38" src="https://github.com/bigandy/sibling-count/assets/603328/0313dd70-d5c6-4db6-a01a-7892913adc1b">
 
-## Do Not
+## Note
 
 If you pass a top-level element with no children, you'll also get a console.warn message. For example:
 
@@ -118,9 +118,9 @@ If you pass a top-level element with no children, you'll also get a console.warn
 
 Should you want the custom element to keep track of updates to the number of children you can use the `keep-track-of-updates` attribute.
 
-### forceInlineStyle
+### modernOnly
 
-Should you want to force the use of the inline styles even in a browser that supports sibling-count() and sibling-index() use the `force-inline-style` attribute.
+Should you want to force the component to check browser support for sibling-count() with CSS.supports() and not use inline-styles when the browser supports it use the `modern-only` attribute.
 
 ## Misc Notes
 

@@ -1,14 +1,14 @@
 const keepTrackOfUpdates = "keep-track-of-updates";
-const forceInlineStyle = "force-inline-style";
+const modernOnly = "modern-only";
 
 interface SiblingCount {
   supportsSiblingCount: boolean;
   keepTrackOfUpdates: boolean;
-  forceInlineStyle: boolean;
+  modernOnly: boolean;
 }
 
 class SiblingCount extends HTMLElement {
-  static observedAttributes = [keepTrackOfUpdates, forceInlineStyle];
+  static observedAttributes = [keepTrackOfUpdates, modernOnly];
 
   constructor() {
     super();
@@ -23,7 +23,7 @@ class SiblingCount extends HTMLElement {
     this.supportsSiblingCount =
       CSS?.supports("z-index: sibling-count()") ?? false;
 
-    this.forceInlineStyle = false;
+    this.modernOnly = false;
     this.keepTrackOfUpdates = false;
   }
 
@@ -81,12 +81,12 @@ class SiblingCount extends HTMLElement {
       this.keepTrackOfUpdates = ["true", ""].includes(attr);
     }
 
-    if (this.hasAttribute(forceInlineStyle)) {
-      const attr = this.getAttribute(forceInlineStyle) ?? "";
-      this.forceInlineStyle = ["true", ""].includes(attr);
+    if (this.hasAttribute(modernOnly)) {
+      const attr = this.getAttribute(modernOnly) ?? "";
+      this.modernOnly = ["true", ""].includes(attr);
     }
 
-    if (this.supportsSiblingCount && !this.forceInlineStyle) {
+    if (this.supportsSiblingCount && this.modernOnly) {
       console.warn("Sibling Count - This browser supports sibling-count().");
       return;
     }
