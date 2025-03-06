@@ -120,7 +120,7 @@ describe("SiblingCount", () => {
     expect(siblingCount).toMatchSnapshot();
   });
 
-  it("should update the attributes when the slot changes", async () => {
+  it("should update the styles when the slot changes if keep-track-of-updates attribute set", async () => {
     const el = document.createElement("sibling-count");
     el.setAttribute("keep-track-of-updates", "true");
 
