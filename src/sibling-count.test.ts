@@ -26,6 +26,23 @@ describe("SiblingCount", () => {
     return siblingCount;
   };
 
+  const checkList = (list: Element) => {
+    const listItems = list.querySelectorAll("li");
+
+    let index = 1;
+    for (const listItem of listItems) {
+      const siblingCountValue =
+        getComputedStyle(listItem).getPropertyValue("--sibling-count");
+
+      expect(siblingCountValue).toBe(String(listItems.length));
+
+      const siblingIndexValue =
+        getComputedStyle(listItem).getPropertyValue("--sibling-index");
+      expect(siblingIndexValue).toBe(String(index));
+      index++;
+    }
+  };
+
   it("should be in the document", () => {
     const siblingCount = createSiblingCount();
 
@@ -97,24 +114,40 @@ describe("SiblingCount", () => {
     const lists = siblingCount.querySelectorAll("ul");
 
     for (const list of lists) {
-      const listItems = list.querySelectorAll("li");
-
-      for (const listItem of listItems) {
-        const siblingIndexValue =
-          getComputedStyle(listItem).getPropertyValue("--sibling-count");
-
-        expect(siblingIndexValue).toBe(String(listItems.length));
-
-        let index = 1;
-        for (const listItem of listItems) {
-          const siblingIndexValue =
-            getComputedStyle(listItem).getPropertyValue("--sibling-index");
-          expect(siblingIndexValue).toBe(String(index));
-          index++;
-        }
-      }
+      checkList(list);
     }
 
     expect(siblingCount).toMatchSnapshot();
+  });
+
+  it("should update the attributes when the slot changes", async () => {
+    const el = document.createElement("sibling-count");
+    el.setAttribute("keep-track-of-updates", "true");
+
+    el.innerHTML = `<ul>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+    `;
+
+    document.body.appendChild(el);
+
+    // check the initial list
+    const list = el.querySelector("ul")!;
+    checkList(list);
+
+    // Add another three list items
+    list.innerHTML += `
+      <li></li>
+      <li></li> 
+      <li></li>
+    `;
+
+    // This is to wait for the mutation observer to run
+    await new Promise(process.nextTick);
+
+    // Check the updated list
+    checkList(list);
   });
 });
