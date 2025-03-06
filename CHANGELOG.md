@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.2.0
+
+### Minor Changes
+
+- 33b7132: add attribute to force inline styles (thus overriding the value from the css.supports check for sibling-count)
+
 ## 3.1.0
 
 ### Minor Changes
