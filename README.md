@@ -1,6 +1,8 @@
 # Sibling-count Web Component
 
-A web component that allows you to put --sibling-count on the parent item, as well as --sibling-index on each child item. This allows cool things such as https://nerdy.dev/cyclical-radio-group-with-trig-functions-and-grid but without the hard-work of hand-coding the css variables. Here's the [CSSWG ticket](https://github.com/w3c/csswg-drafts/issues/4559).
+A web component that allows you to prototype the sibling-count() and sibling-index() functions that are part of the [CSS-Values-5 spec](https://www.w3.org/TR/css-values-5/#tree-counting). This allows cool things such as https://nerdy.dev/cyclical-radio-group-with-trig-functions-and-grid but without the hard-work of hand-coding the css variables. Here's the [CSSWG ticket](https://github.com/w3c/csswg-drafts/issues/4559).
+
+As of March 2025 this feature is being [prototyped in Chrome Canary](https://issues.chromium.org/issues/40282719) under the "Experimental Web Platform features" flag.
 
 ## Scripts
 
@@ -8,8 +10,8 @@ A web component that allows you to put --sibling-count on the parent item, as we
 - `npm run build` - builds the project with vite build
 - `npm run local-release` - publishes the package to npm (needs One Time Password) after doing all the checks beforehand
 - `npx changeset` - creates a changeset of the latest changes. You can choose if it is a patch, minor, or major change.
-- `npm run test` - runs the tests with vitest
-- `npm run test:watch` runs the tests in watch mode
+- `npm run test` - runs the tests with vitest in watch mode
+- `npm run check-test` runs the tests
 
 ## To create a new release
 
@@ -97,28 +99,7 @@ ul {
 Resulting in this:<br />
 <img width="511" alt="Screenshot 2023-08-29 at 16 47 38" src="https://github.com/bigandy/sibling-count/assets/603328/0313dd70-d5c6-4db6-a01a-7892913adc1b">
 
-## Do not
-
-If you provide more than one one top-level child, you'll get a console.warn message telling you not to. For example
-
-```html
-<sibling-count>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</sibling-count>
-```
+## Do Not
 
 If you pass a top-level element with no children, you'll also get a console.warn message. For example:
 
@@ -128,15 +109,15 @@ If you pass a top-level element with no children, you'll also get a console.warn
 </sibling-count>
 ```
 
-## Optional Props
+## Optional attributes
 
 ### keepTrackOfUpdates
 
-Should you want the custom element to keep track of updates to the number of children you can use the `keepTrackOfUpdates` attribute.
+Should you want the custom element to keep track of updates to the number of children you can use the `keep-track-of-updates` attribute.
 
-### initialIndex
+### futureFriendly
 
-Should you want the count to start at a number that is not 1 then you can use the `initialIndex` attribute
+Chrome Canary are prototyping this feature under a flag. If you want the web component to check if your browser supports this feature (falling back to inline style if the browser does not) then use the `future-friendly` attribute.
 
 ## Misc Notes
 

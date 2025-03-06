@@ -87,16 +87,34 @@ describe("SiblingCount", () => {
   });
 
   it("should handle the situation where there are more than one top-level children of <sibling-count>", () => {
-    createSiblingCount(
+    const siblingCount = createSiblingCount(
       `
-      <ul><li></li></ul><ul><li></li></ul>
-      <ul><li></li></ul><ul><li></li></ul>
+      <ul><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+      <ul><li></li><li></li><li></li><li></li><li></li><li></li></ul>
       `,
     );
 
-    expect(consoleMock).toHaveBeenCalledOnce();
-    expect(consoleMock).toHaveBeenLastCalledWith(
-      "Sibling Count - Only one parent element is allowed.",
-    );
+    const lists = siblingCount.querySelectorAll("ul");
+
+    for (const list of lists) {
+      const listItems = list.querySelectorAll("li");
+
+      for (const listItem of listItems) {
+        const siblingIndexValue =
+          getComputedStyle(listItem).getPropertyValue("--sibling-count");
+
+        expect(siblingIndexValue).toBe(String(listItems.length));
+
+        let index = 1;
+        for (const listItem of listItems) {
+          const siblingIndexValue =
+            getComputedStyle(listItem).getPropertyValue("--sibling-index");
+          expect(siblingIndexValue).toBe(String(index));
+          index++;
+        }
+      }
+    }
+
+    expect(siblingCount).toMatchSnapshot();
   });
 });

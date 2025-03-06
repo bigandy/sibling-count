@@ -2,7 +2,7 @@
   "name": "@bigandy/sibling-count",
   "version": "2.0.0",
   "author": "Andrew JD Hudson @bigandy (https://andrewhudson.dev/)",
-  "description": "A web component that shows the count the number of siblings of a parent element and the index of each child element.",
+  "description": "A web component that allows you to prototype the sibling-count() and sibling-index() functions that are part of the CSS-Values-5 spec",
   "keywords": [
     "sibling-count",
     "sibling-index",
@@ -18,16 +18,16 @@
     "dev": "vite",
     "build": "tsup",
     "npm:publish": "npm publish --access=public",
-    "lint": "tsc",
-    "ci": "npm run build && npm run check-format && npm run check-exports && npm run lint && npm run test",
+    "check-lint": "tsc",
+    "ci": "npm run build && npm run check-format && npm run check-exports && npm run check-lint && npm run check-test",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
     "local-release": "changeset version && changeset publish",
     "release": "npm run ci && changeset publish",
     "prepublishOnly": "npm run ci",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "test": "vitest",
+    "check-test": "vitest run"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.17.4",
