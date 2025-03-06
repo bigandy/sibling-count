@@ -22,6 +22,18 @@
 
         background: hsl(var(--_hue) 100% 50%);
       }
+
+      [force-inline-style] ul {
+        border: 1px solid red;
+
+        li {
+          margin-block: 0 1rem;
+          width: calc(var(--sibling-index) * 20px);
+          height: 30px;
+          aspect-ratio: unset;
+          border-radius: 5%;
+      }
+      }
     </style>
   </head>
   <body>
@@ -59,7 +71,6 @@
 
     <p>Example with two top-level children that contain children</p>
 
-    <p>Test with a paragraph</p>
     <sibling-count>
       <ul>
         <li></li>
@@ -76,5 +87,18 @@
         <li></li>
       </ul>
     </sibling-count>
+
+    <p>If you want to force the use of inline style and ignore the browser support for sibing-count() use the <em>force-inline-style</em> attribute</p>
+
+    <sibling-count force-inline-style>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </sibling-count>
+
   </body>
 </html>
