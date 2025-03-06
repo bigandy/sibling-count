@@ -1,5 +1,56 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`SiblingCount > should handle the situation where there are more than one top-level children of <sibling-count> 1`] = `
+<sibling-count>
+  
+      
+  <ul>
+    <li
+      style="--sibling-index: 1; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 2; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 3; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 4; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 5; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 6; --sibling-count: 6;"
+    />
+  </ul>
+  
+      
+  <ul>
+    <li
+      style="--sibling-index: 1; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 2; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 3; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 4; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 5; --sibling-count: 6;"
+    />
+    <li
+      style="--sibling-index: 6; --sibling-count: 6;"
+    />
+  </ul>
+  
+      
+</sibling-count>
+`;
+
 exports[`SiblingCount > should match the snapshot 1`] = `
 <sibling-count>
   <ul>

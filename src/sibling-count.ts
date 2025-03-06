@@ -1,15 +1,14 @@
-const initialIndex = "initial-index";
 const keepTrackOfUpdates = "keep-track-of-updates";
+const futureFriendly = "future-friendly";
 
 interface SiblingCount {
-  modernAttrSupport: boolean;
-  initialIndex: number;
+  supportsSiblingCount: boolean;
   keepTrackOfUpdates: boolean;
   futureFriendly: boolean;
 }
 
 class SiblingCount extends HTMLElement {
-  static observedAttributes = [initialIndex, keepTrackOfUpdates];
+  static observedAttributes = [keepTrackOfUpdates, futureFriendly];
 
   constructor() {
     super();
@@ -21,16 +20,18 @@ class SiblingCount extends HTMLElement {
     this.shadowRoot.innerHTML = `
 	<slot></slot>
 	`;
-    this.modernAttrSupport = CSS?.supports("x: attr(x type(*))") ?? false;
+    this.supportsSiblingCount =
+      CSS?.supports("z-index: sibling-count()") ?? false;
 
-    this.initialIndex = 1;
     this.keepTrackOfUpdates = false;
 
-    // future friendly means that the user wants attr() to be used instead of inline custom properties. Not implented so far.
+    // future friendly means that the user wants to check for presence of the sibling-count() function.
     this.futureFriendly = false;
 
-    if (this.hasAttribute(initialIndex)) {
-      this.initialIndex = Number(this.getAttribute(initialIndex));
+    if (this.hasAttribute(futureFriendly)) {
+      this.futureFriendly =
+        this.getAttribute(futureFriendly) === "true" ||
+        this.getAttribute(futureFriendly) === "";
     }
 
     if (this.hasAttribute(keepTrackOfUpdates)) {
@@ -40,11 +41,7 @@ class SiblingCount extends HTMLElement {
   }
 
   setAttributeOrStyle(element: HTMLElement, name: string, value: string) {
-    if (this.modernAttrSupport && this.futureFriendly) {
-      element.setAttribute(`data-${name}`, value);
-    } else {
-      element.style.setProperty(`--${name}`, value);
-    }
+    element.style.setProperty(`--${name}`, value);
   }
 
   showerAttributesOntoElements() {
@@ -60,41 +57,46 @@ class SiblingCount extends HTMLElement {
         // filter out text nodes
         .filter((node) => node.nodeType === 1) ?? [];
 
-    if (assignedNodes.length > 1) {
-      console.warn("Sibling Count - Only one parent element is allowed.");
-      return;
+    for (const node of assignedNodes) {
+      const parent = node as HTMLElement;
+
+      const siblingCount = parent.childElementCount;
+      if (siblingCount === 0) {
+        console.warn(
+          "Sibling Count - No children found. Use one parent element and this component will show how many children elements are present.",
+        );
+        return;
+      }
+
+      const siblings = [...parent.children];
+      // Loop through all the children and add the custom property sibling-index to each.
+
+      let index = 1;
+      for (const sibling of siblings) {
+        const siblingIndex = String(index);
+        this.setAttributeOrStyle(
+          sibling as HTMLElement,
+          "sibling-index",
+          siblingIndex,
+        );
+
+        this.setAttributeOrStyle(
+          sibling as HTMLElement,
+          "sibling-count",
+          String(siblingCount),
+        );
+
+        index++;
+      }
     }
-
-    const parent = assignedNodes[0] as HTMLElement;
-
-    const siblingCount = parent.childElementCount;
-    if (siblingCount === 0) {
-      console.warn(
-        "Sibling Count - No children found. Use one parent element and this component will show how many children elements are present.",
-      );
-      return;
-    }
-
-    const siblings = [...parent.children];
-    // Loop through all the children and add the custom property sibling-index to each.
-
-    siblings.forEach((sibling, index) => {
-      const siblingIndex = String(index + this.initialIndex);
-      this.setAttributeOrStyle(
-        sibling as HTMLElement,
-        "sibling-index",
-        siblingIndex,
-      );
-
-      this.setAttributeOrStyle(
-        sibling as HTMLElement,
-        "sibling-count",
-        String(siblingCount),
-      );
-    });
   }
 
   connectedCallback() {
+    if (this.supportsSiblingCount && this.futureFriendly) {
+      console.warn("Sibling Count - This browser supports sibling-count().");
+      return;
+    }
+
     const shadow = this.shadowRoot;
     if (!shadow) {
       return;
@@ -146,4 +148,4 @@ class SiblingCount extends HTMLElement {
 }
 
 customElements.define("sibling-count", SiblingCount);
-export default SiblingCount;
+// export default SiblingCount;

@@ -17,13 +17,16 @@
         height: 20px;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: hsl(calc(var(--sibling-index) * 300deg) 100% 50%);
+
+        --_hue: calc(var(--sibling-index, sibling-index()) * 300deg);
+
+        background: hsl(var(--_hue) 100% 50%);
       }
     </style>
   </head>
   <body>
     <p>Test with blank spaces removed</p>
-    <sibling-count
+    <sibling-count future-friendly
       ><ul>
         <li></li>
         <li></li>
@@ -34,7 +37,7 @@
         <li></li></ul
     ></sibling-count>
     <p>Test with blank spaces</p>
-    <sibling-count>
+    <sibling-count future-friendly>
       <ul>
         <li></li>
         <li></li>
@@ -46,28 +49,18 @@
       </ul>
     </sibling-count>
 
-    <p>Using starting-index</p>
-    <sibling-count initial-index="3">
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </sibling-count>
-
-    <p>Test with a paragraph</p>
-    <sibling-count>
+    <p>
+      Test with a paragraph that contains no children. Should show a
+      console.warn message
+    </p>
+    <sibling-count future-friendly>
       <p>This is cool?</p>
     </sibling-count>
 
     <p>Example with two top-level children that contain children</p>
 
     <p>Test with a paragraph</p>
-    <sibling-count>
+    <sibling-count future-friendly>
       <ul>
         <li></li>
         <li></li>
