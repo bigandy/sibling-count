@@ -118,6 +118,10 @@ If you pass a top-level element with no children, you'll also get a console.warn
 
 Should you want the custom element to keep track of updates to the number of children you can use the `keep-track-of-updates` attribute.
 
+### forceInlineStyle
+
+Should you want to force the use of the inline styles even in a browser that supports sibling-count() and sibling-index() use the `force-inline-style` attribute.
+
 ## Misc Notes
 
 I converted this package following this tutorial: https://www.totaltypescript.com/how-to-create-an-npm-package
