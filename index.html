@@ -23,12 +23,12 @@
         background: hsl(var(--_hue) 100% 50%);
       }
 
-      [force-inline-style] ul {
+      [modern-only] ul {
         border: 1px solid red;
 
         li {
           margin-block: 0 1rem;
-          width: calc(var(--sibling-index) * 20px);
+          width: calc(sibling-index() * 20px);
           height: 30px;
           aspect-ratio: unset;
           border-radius: 5%;
@@ -89,11 +89,12 @@
     </sibling-count>
 
     <p>
-      If you want to force the use of inline style and ignore the browser
-      support for sibing-count() use the <em>force-inline-style</em> attribute
+      If you want to force the component to check browser support for sibling-count() with CSS.supports() and not use inline-styles when the browser supports it use the  <em>modern-only</em> attribute.
     </p>
 
-    <sibling-count force-inline-style>
+    <p>This will not work unless your browser supports it:</p>
+
+    <sibling-count modern-only>
       <ul>
         <li></li>
         <li></li>
