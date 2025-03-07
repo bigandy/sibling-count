@@ -1,6 +1,8 @@
 import "./sibling-count.js";
 import { afterEach, describe, it, expect, vi } from "vitest";
 
+import { getAllByRole, getByRole } from "@testing-library/dom";
+
 describe("SiblingCount", () => {
   const consoleMock = vi
     .spyOn(console, "warn")
@@ -26,19 +28,21 @@ describe("SiblingCount", () => {
     return siblingCount;
   };
 
-  const checkList = (list: Element) => {
-    const listItems = list.querySelectorAll("li");
+  const checkList = (list: HTMLElement) => {
+    const listItems = getAllByRole(list, "listitem");
+    const listItemsLength = listItems.length;
+    console.log(listItems);
 
     let index = 1;
     for (const listItem of listItems) {
       const siblingCountValue =
         getComputedStyle(listItem).getPropertyValue("--sibling-count");
 
-      expect(siblingCountValue).toBe(String(listItems.length));
+      expect(Number(siblingCountValue)).toBe(listItemsLength);
 
       const siblingIndexValue =
         getComputedStyle(listItem).getPropertyValue("--sibling-index");
-      expect(siblingIndexValue).toBe(String(index));
+      expect(Number(siblingIndexValue)).toBe(index);
       index++;
     }
   };
@@ -52,15 +56,14 @@ describe("SiblingCount", () => {
   it("for each of the children: should have a --sibling-index matching the 1-based index", () => {
     const siblingCount = createSiblingCount();
 
-    const list = siblingCount.querySelector("ul")!;
-    const listItems = list.querySelectorAll("li");
+    const listItems = getAllByRole(siblingCount, "listitem");
 
     // Loop through list items, check their --sibling-index matches the index
     let index = 1;
     for (const listItem of listItems) {
       const siblingIndexValue =
         getComputedStyle(listItem).getPropertyValue("--sibling-index");
-      expect(siblingIndexValue).toBe(String(index));
+      expect(Number(siblingIndexValue)).toBe(index);
       index++;
     }
   });
@@ -75,7 +78,7 @@ describe("SiblingCount", () => {
       const siblingIndexValue =
         getComputedStyle(listItem).getPropertyValue("--sibling-count");
 
-      expect(siblingIndexValue).toBe(String(listItems.length));
+      expect(Number(siblingIndexValue)).toBe(listItems.length);
     }
   });
 
@@ -111,7 +114,7 @@ describe("SiblingCount", () => {
       `,
     );
 
-    const lists = siblingCount.querySelectorAll("ul");
+    const lists = getAllByRole(siblingCount, "list");
 
     for (const list of lists) {
       checkList(list);
@@ -134,7 +137,7 @@ describe("SiblingCount", () => {
     document.body.appendChild(el);
 
     // check the initial list
-    const list = el.querySelector("ul")!;
+    const list = getByRole(el, "list");
     checkList(list);
 
     // Add another three list items
@@ -148,6 +151,7 @@ describe("SiblingCount", () => {
     await new Promise(process.nextTick);
 
     // Check the updated list
-    checkList(list);
+    const updatedList = getByRole(el, "list");
+    checkList(updatedList);
   });
 });
