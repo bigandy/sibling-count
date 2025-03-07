@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.5.0
+
+### Minor Changes
+
+- a48ddcc: adds @testing-library/dom to tests
+
 ## 3.4.0
 
 ### Minor Changes
