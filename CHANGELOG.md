@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.6.0
+
+### Minor Changes
+
+- 96f7b58: fix custom event name
+
 ## 3.5.1
 
 ### Patch Changes
