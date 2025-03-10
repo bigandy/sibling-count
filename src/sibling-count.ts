@@ -1,5 +1,6 @@
 const keepTrackOfUpdates = "keep-track-of-updates";
 const modernOnly = "modern-only";
+const elementDisconnectedEvent = "element-disconnected";
 
 interface SiblingCount {
   supportsSiblingCount: boolean;
@@ -128,7 +129,7 @@ class SiblingCount extends HTMLElement {
       observer.observe(parent, config);
 
       // disconnect the observer when the element is disconnected.
-      this.addEventListener("disconnected", () => {
+      this.addEventListener(elementDisconnectedEvent, () => {
         observer.disconnect();
       });
     }
@@ -136,7 +137,7 @@ class SiblingCount extends HTMLElement {
 
   disconnectedCallback() {
     if (this.keepTrackOfUpdates) {
-      this.dispatchEvent(new Event("element-disconnected"));
+      this.dispatchEvent(new Event(elementDisconnectedEvent));
     }
   }
 }
