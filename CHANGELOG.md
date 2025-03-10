@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.5.1
+
+### Patch Changes
+
+- 1e91d22: update dependencies, remove @types/jest as not needed
+
 ## 3.5.0
 
 ### Minor Changes
