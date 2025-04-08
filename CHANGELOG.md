@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.6.1
+
+### Patch Changes
+
+- c589d2d: update readme link
+
 ## 3.6.0
 
 ### Minor Changes
