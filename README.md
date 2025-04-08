@@ -25,7 +25,7 @@ As of March 2025 this feature is being [prototyped in Chrome Canary](https://iss
 
 ## Notes
 
-You can import with unpkg `https://unpkg.com/@bigandy/sibling-count` and then use in your HTML
+You can import with esm.sh `https://esm.sh/@bigandy/sibling-count` and then use in your HTML.
 
 <details open>
 <summary>input html</summary>
