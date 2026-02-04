@@ -1,9 +1,5 @@
 name: Release
 
-# Permission to generate an OIDC token
-permissions:
-  id-token: write
-
 on:
   push:
     branches:
