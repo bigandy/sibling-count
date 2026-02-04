@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.6.8
+
+### Patch Changes
+
+- a8ceb36: bump
+
 ## 3.6.7
 
 ### Patch Changes
