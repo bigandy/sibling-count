@@ -1,5 +1,13 @@
 # @bigandy/sibling-count
 
+## 3.6.5
+
+### Patch Changes
+
+- 36f99a9: things
+- 6c1b7f9: release again
+- 4ea469f: thing
+
 ## 3.6.4
 
 ### Patch Changes
