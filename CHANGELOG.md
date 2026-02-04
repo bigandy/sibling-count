@@ -1,5 +1,17 @@
 # @bigandy/sibling-count
 
+## 3.6.3
+
+### Patch Changes
+
+- 6501dc9: bump dependencies
+- 6086f42: adds @types/node
+- e6cf095: p Please enter a summary for your changes.
+- b6b4ae4: fix package.json
+- 1895dfc: bump
+- d5e49a9: fix lint
+- aa6da7f: bump
+
 ## 3.6.1
 
 ### Patch Changes
