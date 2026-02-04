@@ -11,8 +11,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-    permissions:
-      id-token: write # Required for OIDC
+    # permissions:
+    #   id-token: write # Required for OIDC
 
     steps:
       - uses: actions/checkout@v4
