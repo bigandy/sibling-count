@@ -1,5 +1,13 @@
 # @bigandy/sibling-count
 
+## 3.6.7
+
+### Patch Changes
+
+- 6605fc0: test
+- 4a276d8: bump
+- 4388c87: test
+
 ## 3.6.6
 
 ### Patch Changes
