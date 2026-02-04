@@ -13,7 +13,6 @@ jobs:
 
     permissions:
       id-token: write # Required for OIDC
-      contents: read
 
     steps:
       - uses: actions/checkout@v4
