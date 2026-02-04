@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.6.4
+
+### Patch Changes
+
+- f230b58: release.yml
+
 ## 3.6.3
 
 ### Patch Changes
