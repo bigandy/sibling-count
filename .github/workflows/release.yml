@@ -11,8 +11,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-    # permissions:
-    #   id-token: write # Required for OIDC
+    permissions:
+      contents: write # to create release (changesets/action)
+      issues: write # to post issue comments (changesets/action)
+      pull-requests: write # to create pull request (changesets/action)
+      id-token: write # to use OpenID Connect token for trusted publishing (changesets/action)
 
     steps:
       - uses: actions/checkout@v4
@@ -30,5 +33,3 @@ jobs:
           publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
