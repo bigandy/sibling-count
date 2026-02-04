@@ -3,6 +3,7 @@ import { afterEach, describe, it, expect, vi } from "vitest";
 
 import { getAllByRole, getByRole } from "@testing-library/dom";
 
+
 describe("SiblingCount", () => {
   const consoleMock = vi
     .spyOn(console, "warn")
@@ -143,7 +144,7 @@ describe("SiblingCount", () => {
     // Add another three list items
     list.innerHTML += `
       <li></li>
-      <li></li> 
+      <li></li>
       <li></li>
     `;
 

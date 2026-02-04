@@ -2,6 +2,8 @@
 
 exports[`SiblingCount > should handle the situation where there are more than one top-level children of <sibling-count> 1`] = `
 <sibling-count>
+  #shadow-root
+    <slot />
   
       
   <ul>
@@ -53,6 +55,8 @@ exports[`SiblingCount > should handle the situation where there are more than on
 
 exports[`SiblingCount > should match the snapshot 1`] = `
 <sibling-count>
+  #shadow-root
+    <slot />
   <ul>
     
                 
