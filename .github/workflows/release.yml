@@ -1,8 +1,6 @@
 name: Release
 
-permissions:
-  id-token: write # Required for OIDC
-  contents: read
+
 
 on:
   push:
@@ -14,6 +12,11 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
