@@ -1,6 +1,6 @@
 {
   "name": "@bigandy/sibling-count",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "author": "Andrew JD Hudson @bigandy (https://andrewhudson.dev/)",
   "description": "A web component that allows you to prototype the sibling-count() and sibling-index() functions that are part of the CSS-Values-5 spec",
   "keywords": [
