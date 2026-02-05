@@ -32,7 +32,6 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@changesets/cli": "2.29.8",
-    "@csstools/css-parser-algorithms": "3.0.4",
     "@testing-library/dom": "10.4.1",
     "@types/node": "25.2.0",
     "jsdom": "28.0.0",
