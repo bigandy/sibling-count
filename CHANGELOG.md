@@ -1,5 +1,11 @@
 # @bigandy/sibling-count
 
+## 3.7.0
+
+### Minor Changes
+
+- fec04ba: bump the minor
+
 ## 3.6.8
 
 ### Patch Changes
